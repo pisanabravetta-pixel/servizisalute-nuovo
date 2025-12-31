@@ -6,7 +6,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/logo.png" alt="ServiziSalute Logo" className="h-10 w-auto mr-3" />
+           
             <h1 className="text-2xl font-bold text-primary">ServiziSalute</h1>
           </div>
           <nav>
@@ -22,4 +22,5 @@ export default function Header() {
       </div>
     </header>
   );
+
 }
