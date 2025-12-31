@@ -12,38 +12,45 @@ export default function Home() {
     { nome: 'A Domicilio', icona: '🏠', colore: 'bg-yellow-100' },
   ];
 
-  const piuCercati = [
-    "TAC Aperta", "Ecografia Addome", "Iniezioni a domicilio", "Pulizia denti", 
-    "Fisioterapia", "Analisi del sangue", "Sostituzione Catetere", "Radiografia Torace",
-    "Holter Cardiaco", "Spirometria", "Medicazioni", "Apparecchi Dentali",
-    "Test Intolleranze", "Noleggio Stampelle", "Risonanza Magnetica", "Igiene Orale"
+  // Sezione 1: I servizi più cercati (Offerte dirette)
+  const piuCercatiOfferte = [
+    { id: 101, title: "Sconto 20% Integratori e Cosmetica", image: "https://images.unsplash.com/photo-1586015555751-63bb77f4322a?w=600", indirizzo: "Farmacia Roma Est", prezzo: "Da 10 €", categoria: "Farmacie" },
+    { id: 102, title: "TAC Encefalo Totale", image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600", indirizzo: "Centro Diagnostico Prati", prezzo: "125 €", categoria: "Diagnostica" },
+    { id: 103, title: "Sbiancamento Dentale Professionale", image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600", indirizzo: "Studio Dentistico Eur", prezzo: "89 €", categoria: "Dentisti" },
+    { id: 104, title: "Prelievo Sangue a Domicilio", image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=600", indirizzo: "Tutta Roma", prezzo: "25 €", categoria: "A Domicilio" },
   ];
 
-  const annunciFittizi = [
-    { id: 1, title: "Pulizia Denti + Controllo Carie", image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600", indirizzo: "Roma (Bravetta)", prezzo: "59 €", categoria: "Dentisti" },
-    { id: 2, title: "TAC Encefalo Alta Risoluzione", image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600", indirizzo: "Roma (Prati)", prezzo: "125 €", categoria: "Diagnostica" },
-    { id: 3, title: "Infermiere per Flebo e Prelievi", image: "https://images.unsplash.com/photo-1581578731522-a204786499ec?w=600", indirizzo: "Roma (Eur)", prezzo: "30 €", categoria: "A Domicilio" },
-    { id: 4, title: "Noleggio Magnetoterapia", image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600", indirizzo: "Roma (Pisana)", prezzo: "10 €/gg", categoria: "Farmacie" },
+  // Sezione 3: Ultimi servizi pubblicati (Novità)
+  const ultimiServizi = [
+    { id: 201, title: "Test Intolleranze Alimentari", image: "https://images.unsplash.com/photo-1579152276503-346761899a22?w=600", indirizzo: "Zona Pisana", prezzo: "45 €", categoria: "Farmacie" },
+    { id: 202, title: "Risonanza Magnetica Aperta", image: "https://images.unsplash.com/photo-1516549119129-df99b825fe34?w=600", indirizzo: "Zona Centro", prezzo: "150 €", categoria: "Diagnostica" },
+    { id: 203, title: "Apparecchio Invisibile (Invisalign)", image: "https://images.unsplash.com/photo-1598256942487-02717cb97a01?w=600", indirizzo: "Zona Monteverde", prezzo: "Consulto Gratis", categoria: "Dentisti" },
+    { id: 204, title: "Fisioterapia Riabilitativa", image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600", indirizzo: "Zona Bravetta", prezzo: "40 €/seduta", categoria: "A Domicilio" },
   ];
 
   return (
     <div className="min-h-screen bg-[#f2f4f5]">
       <Head>
-        <title>Servizi Sanitari e Farmacie a Roma | Servizi Salute Roma</title>
+        <title>Servizi Sanitari Privati Roma | Farmacie, TAC e Dentisti</title>
       </Head>
 
       {/* TOP BAR */}
       <div className="bg-[#002f34] text-white py-2 px-4 text-center text-xs md:text-sm font-semibold">
-        🚀 IL PORTALE 100% GRATUITO DELLA SANITÀ A ROMA - <span className="text-[#ff6724]">PUBBLICA ANNUNCI SENZA COSTI</span>
+        🥇 “Trova servizi sanitari privati a Roma, subito”
       </div>
 
       <Header />
       
-      <section className="bg-white pt-10 pb-16 border-b">
+      {/* HERO SECTION */}
+      <section className="bg-white pt-12 pb-16 border-b">
         <div className="container mx-auto px-4">
-          <h1 className="text-center text-2xl md:text-4xl font-extrabold text-gray-900 mb-8 uppercase tracking-tight">
-            Servizi Sanitari e Farmacie a Roma
-          </h1>
+          <div className="text-center mb-8">
+            <h1 className="text-2xl md:text-4xl font-extrabold text-gray-900 uppercase tracking-tight mb-2">
+              Servizi Sanitari e Farmacie a Roma
+            </h1>
+            <p className="text-gray-600 font-medium">confronta farmacie, dentisti, e servizi sanitari a pagamento nella tua zona</p>
+          </div>
+          
           <SearchBar />
           
           <div className="flex justify-center gap-6 md:gap-14 mt-12 overflow-x-auto pb-4">
@@ -52,7 +59,7 @@ export default function Home() {
                 <div className={`${cat.colore} w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-3xl shadow-sm group-hover:scale-110 transition-all`}>
                   {cat.icona}
                 </div>
-                <span className="mt-3 text-sm font-bold text-gray-700">{cat.nome}</span>
+                <span className="mt-3 text-sm font-bold text-gray-700 uppercase tracking-tighter">{cat.nome}</span>
               </div>
             ))}
           </div>
@@ -61,72 +68,65 @@ export default function Home() {
 
       <main className="container mx-auto px-4 py-12">
         
-        {/* 1. ANNUNCI IN VETRINA */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2 uppercase">🔥 Annunci in vetrina</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {annunciFittizi.map(annuncio => (
-              <ServiceCard key={annuncio.id} service={annuncio} />
-            ))}
-          </div>
-        </section>
-
-        {/* 2. SERVIZI PIÙ CERCATI */}
-        <section className="mb-16 bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-          <h2 className="text-xl font-bold text-gray-800 mb-6 uppercase">I servizi più cercati a Roma</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
-            {piuCercati.map((item, i) => (
-              <span key={i} className="px-2 py-3 bg-gray-50 hover:bg-orange-50 text-gray-600 hover:text-[#ff6724] rounded text-[11px] font-bold text-center cursor-pointer transition-colors border border-gray-100 uppercase">
-                {item}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        {/* 3. PERCHÉ SCEGLIERE SERVIZI SALUTE */}
+        {/* SEZIONE 1: I servizi sanitari più cercati a Roma */}
         <section className="mb-20">
-          <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-12 uppercase">Perché scegliere Servizi Salute Roma?</h2>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="p-8 bg-white rounded-2xl shadow-sm border-b-4 border-[#ff6724]">
-              <div className="text-5xl mb-4">💰</div>
-              <h3 className="font-bold text-xl mb-3">100% GRATUITO</h3>
-              <p className="text-gray-600">Pubblicare e consultare i servizi è gratis per tutti, per sempre.</p>
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 uppercase">I servizi sanitari più cercati a Roma</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {piuCercatiOfferte.map(servizio => (
+              <ServiceCard key={servizio.id} service={servizio} />
+            ))}
+          </div>
+        </section>
+
+        {/* SEZIONE 2: Testo SEO / Descrizione Portale */}
+        <section className="mb-20 bg-white p-10 rounded-3xl shadow-sm border border-gray-100 text-center max-w-5xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 uppercase">
+            Servizi Sanitari Privati a Roma: Trova il meglio vicino a te
+          </h2>
+          <p className="text-gray-600 leading-relaxed text-lg">
+            "Cercare un servizio medico a Roma non è mai stato così semplice. Che tu abbia bisogno di una visita specialistica a Roma Nord, di un laboratorio di analisi all'Eur o di un dentista in zona Prati, ServiziSalute ti offre una mappa completa delle eccellenze sanitarie della Capitale. Il nostro portale è pensato per chi cerca rapidità, professionalità e vicinanza, raggruppando i migliori professionisti sanitari della provincia di Roma in un unico posto."
+          </p>
+        </section>
+
+        {/* SEZIONE 3: Ultimi servizi pubblicati */}
+        <section className="mb-20">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 uppercase">Ultimi servizi pubblicati</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {ultimiServizi.map(servizio => (
+              <ServiceCard key={servizio.id} service={servizio} />
+            ))}
+          </div>
+        </section>
+
+        {/* SEZIONE 4: Perché usare ServiziSalute (Privati/Professionisti) */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-800 mb-8 uppercase text-center tracking-widest">Perché usare ServiziSalute</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Box Utenti */}
+            <div className="bg-white p-10 rounded-3xl flex items-center gap-6 border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="text-6xl">🏥</div>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 uppercase">Sei un privato?</h3>
+                <p className="text-gray-500 mb-5 font-medium italic">Trova subito il servizio di cui hai bisogno senza attese.</p>
+                <button className="bg-gray-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-black uppercase text-sm">Cerca Servizi</button>
+              </div>
             </div>
-            <div className="p-8 bg-white rounded-2xl shadow-sm border-b-4 border-blue-600">
-              <div className="text-5xl mb-4">⚡</div>
-              <h3 className="font-bold text-xl mb-3">DIRETTO</h3>
-              <p className="text-gray-600">Contatta direttamente la struttura o il tecnico senza intermediari.</p>
-            </div>
-            <div className="p-8 bg-white rounded-2xl shadow-sm border-b-4 border-green-500">
-              <div className="text-5xl mb-4">📍</div>
-              <h3 className="font-bold text-xl mb-3">QUARTIERI ROMA</h3>
-              <p className="text-gray-600">Trova il servizio realmente vicino a te filtrando per zona.</p>
+            {/* Box Professionisti */}
+            <div className="bg-white p-10 rounded-3xl flex items-center gap-6 border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="text-6xl">📢</div>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 uppercase">Sei un professionista?</h3>
+                <p className="text-gray-500 mb-5 font-medium italic">Pubblica la tua attività gratuitamente e fatti trovare a Roma.</p>
+                <button className="bg-[#ff6724] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#e85a1a] uppercase text-sm">Inserisci gratis</button>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* 4. BOX AZIONE */}
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white p-10 rounded-3xl flex items-center gap-6 border border-gray-200">
-            <div className="text-6xl">🏥</div>
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 uppercase">Cerchi un servizio?</h3>
-              <p className="text-gray-500 mb-5 font-medium">Sfoglia le farmacie e i centri diagnostici di zona.</p>
-              <button className="bg-gray-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-black">Sfoglia categorie</button>
-            </div>
-          </div>
-          <div className="bg-white p-10 rounded-3xl flex items-center gap-6 border border-gray-200">
-            <div className="text-6xl">📢</div>
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 uppercase">Vuoi pubblicare?</h3>
-              <p className="text-gray-500 mb-5 font-medium">Inserisci la tua attività gratuitamente in pochi click.</p>
-              <button className="bg-[#ff6724] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#e85a1a]">Inserisci gratis</button>
-            </div>
-          </div>
-        </div>
       </main>
 
       <Footer />
     </div>
   );
 }
+
