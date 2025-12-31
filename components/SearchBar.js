@@ -2,30 +2,36 @@ import { useState } from 'react';
 
 export default function SearchBar() {
   const zoneRoma = [
-    "Tutta Roma", 
-    "Centro Storico", "Prati", "Trastevere", "Testaccio",
-    "Bravetta", "Pisana", "Monteverde", "Gianicolense", "Aurelio",
-    "Eur", "Ostiense", "Garbatella", "Magliana",
-    "Roma Nord", "Flaminio", "Parioli", "Corso Francia",
-    "San Lorenzo", "Piazza Bologna", "Appio Latino", "Tuscolana",
-    "Ostia", "Fiumicino", "Pomezia"
+    "Tutta Roma",
+    "--- CENTRO ---",
+    "Centro Storico", "Trastevere", "Prati", "Testaccio", "Parioli",
+    "--- OVEST (TUA ZONA) ---",
+    "Bravetta", "Pisana", "Casaletto", "Monteverde", "Gianicolense", "Aurelia", "Boccea",
+    "--- NORD ---",
+    "Flaminio", "Cassia", "Corso Francia", "Balduina", "Talenti", "Nomentana",
+    "--- EST ---",
+    "Tiburtina", "Collatina", "Prenestina", "San Lorenzo", "Piazza Bologna",
+    "--- SUD ---",
+    "Eur", "Garbatella", "Ostiense", "Appia Nuova", "Tuscolana", "Ardeatina",
+    "--- LITORALE ---",
+    "Ostia", "Fiumicino", "Infernetto"
   ];
 
   return (
     <div className="w-full max-w-6xl mx-auto">
-      <form className="flex flex-col md:flex-row items-stretch bg-white rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200">
-        <div className="flex-[2] flex items-center px-5 py-4 border-b md:border-b-0 md:border-r border-gray-100">
-          <span className="text-gray-400 mr-3">🔍</span>
+      <form className="flex flex-col md:flex-row items-stretch bg-white rounded-xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.12)] border border-gray-200">
+        {/* Input Testo */}
+        <div className="flex-[2] flex items-center px-6 py-4 border-b md:border-b-0 md:border-r border-gray-100">
           <input 
             type="text" 
-            placeholder="Cerca un servizio (es. TAC, Pulizia denti...)" 
-            className="w-full outline-none text-gray-800 font-semibold placeholder-gray-400"
+            placeholder="Cerca: TAC, Pulizia denti, Analisi..." 
+            className="w-full outline-none text-gray-800 font-medium placeholder-gray-400 text-lg"
           />
         </div>
 
-        <div className="flex-1 flex items-center px-5 py-4 border-b md:border-b-0 md:border-r border-gray-100">
-          <span className="text-gray-400 mr-3">📂</span>
-          <select className="w-full outline-none bg-transparent text-gray-700 font-medium cursor-pointer appearance-none">
+        {/* Selezione Categoria */}
+        <div className="flex-1 flex items-center px-6 py-4 border-b md:border-b-0 md:border-r border-gray-100 bg-gray-50/50">
+          <select className="w-full outline-none bg-transparent text-gray-700 font-semibold cursor-pointer appearance-none">
             <option>Tutte le categorie</option>
             <option>Farmacie</option>
             <option>Dentisti</option>
@@ -34,17 +40,20 @@ export default function SearchBar() {
           </select>
         </div>
 
-        <div className="flex-1 flex items-center px-5 py-4">
-          <span className="text-gray-400 mr-3">📍</span>
-          <select className="w-full outline-none bg-transparent text-gray-700 font-medium cursor-pointer appearance-none">
+        {/* Selezione Zone Roma (stile Immobiliare.it) */}
+        <div className="flex-1 flex items-center px-6 py-4 bg-gray-50/50">
+          <select className="w-full outline-none bg-transparent text-gray-700 font-semibold cursor-pointer appearance-none">
             {zoneRoma.map((zona, i) => (
-              <option key={i} value={zona}>{zona}</option>
+              <option key={i} value={zona} disabled={zona.startsWith("---")}>
+                {zona}
+              </option>
             ))}
           </select>
         </div>
 
-        <button className="bg-[#ff6724] hover:bg-[#e85a1a] text-white font-black px-12 py-5 transition-all text-xl uppercase tracking-wider">
-          Cerca
+        {/* Bottone */}
+        <button className="bg-[#ff6724] hover:bg-[#e85a1a] text-white font-black px-12 py-5 transition-all text-xl">
+          CERCA
         </button>
       </form>
     </div>
