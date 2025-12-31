@@ -1,33 +1,31 @@
 import { useState } from 'react';
 
 export default function SearchBar() {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      console.log('Searching for:', searchTerm);
-      // Add actual search logic here
-    }
-  };
-
   return (
-    <div className="mb-8">
-      <form onSubmit={handleSearch} className="flex gap-2">
-        <input
-          type="text"
-          placeholder="Cerca un servizio o zona..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="flex-grow px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+    <div className="w-full max-w-5xl mx-auto">
+      <form className="flex flex-col md:flex-row gap-2 bg-white p-2 rounded-lg shadow-lg">
+        <input 
+          type="text" 
+          placeholder="Cosa cerchi? (es. Dentista, Tachipirina...)" 
+          className="flex-[2] p-4 outline-none border-r border-gray-100 text-gray-700"
         />
-        <button
-          type="submit"
-          className="bg-primary text-white px-6 py-2 rounded-r-md hover:bg-primary-dark transition-colors"
-        >
+        <select className="flex-1 p-4 outline-none border-r border-gray-100 text-gray-500 bg-white">
+          <option>Tutte le categorie</option>
+          <option>Farmacie</option>
+          <option>Dentisti</option>
+          <option>Diagnostica</option>
+          <option>Servizi a domicilio</option>
+        </select>
+        <input 
+          type="text" 
+          placeholder="In quale zona di Roma?" 
+          className="flex-1 p-4 outline-none text-gray-700"
+        />
+        <button className="bg-[#ff6724] hover:bg-[#e85a1a] text-white font-bold py-4 px-8 rounded-md transition-colors">
           Cerca
         </button>
       </form>
     </div>
   );
 }
+
