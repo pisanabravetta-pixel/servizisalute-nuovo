@@ -1,0 +1,15 @@
+// components/Logo.tsx
+export default function Logo() {
+  return (
+    <div className="flex items-center gap-2">
+      <svg width="40" height="40" viewBox="0 0 64 64">
+        <rect x="20" y="4" width="24" height="56" rx="4" fill="#2ecc71"/>
+        <rect x="4" y="20" width="56" height="24" rx="4" fill="#27ae60"/>
+        <circle cx="32" cy="32" r="10" fill="#ffffff"/>
+      </svg>
+      <span className="text-2xl font-bold text-green-700">
+        ServiziSalute<span className="text-blue-600">.it</span>
+      </span>
+    </div>
+  );
+}

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-// Dati di esempio per i servizi
+// Mock data for services
 const servizi = [
   {
     id: 1,
@@ -52,8 +52,9 @@ const servizi = [
   }
 ];
 
-export default function handler(req, res) {
-  const { categoria } = req.query;
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const categoria = searchParams.get('categoria');
   
   let filteredServizi = servizi;
   
@@ -61,5 +62,5 @@ export default function handler(req, res) {
     filteredServizi = servizi.filter(servizio => servizio.categoria === categoria);
   }
   
-  res.status(200).json(filteredServizi);
+  return NextResponse.json(filteredServizi);
 }
