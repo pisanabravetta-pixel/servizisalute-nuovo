@@ -2,27 +2,19 @@ import Link from 'next/link';
 
 export default function ServiceCard({ service }) {
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-      <img 
-        src={service.image} 
-        alt={service.title}
-        className="w-full h-56 object-cover"
-      />
-      <div className="p-6">
-        <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full mb-3 uppercase">
-          {service.categoria}
-        </span>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-        <p className="text-gray-500 text-sm mb-4">📍 {service.indirizzo}</p>
-        
-        <div className="flex items-center justify-between pt-4 border-t border-gray-50">
-          <span className="text-blue-700 font-bold text-lg">{service.prezzo}</span>
-          <Link 
-            href={`/servizio/${service.id}`}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors"
-          >
-            Dettagli
-          </Link>
+    <div className="bg-white rounded-md overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer border border-transparent hover:border-gray-200">
+      <div className="relative h-48">
+        <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+      </div>
+      <div className="p-4">
+        <h3 className="text-[16px] leading-tight font-medium text-gray-900 mb-1 h-12 overflow-hidden">
+          {service.title}
+        </h3>
+        <p className="text-[#ff6724] text-xl font-bold mb-1">{service.prezzo}</p>
+        <p className="text-gray-400 text-xs uppercase font-semibold">{service.categoria}</p>
+        <div className="flex justify-between items-center mt-4 text-gray-400 text-xs">
+          <span>{service.indirizzo}</span>
+          <span>Oggi, 10:30</span>
         </div>
       </div>
     </div>
